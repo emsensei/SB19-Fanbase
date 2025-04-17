@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SB19 Fandom</title>
+
+	<!---custom css link-->
+	<link rel="stylesheet" href="style.css">
+
+	<!--boxicons link-->
+	<link rel="stylesheet"
+	href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+
+	<!--google fonts link-->
+	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900" rel="stylesheet" type="text/css">
+		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+	<!--header design-->
+	<header>
+		<a href="home.html" id="SB19">
+			<img src="images/logo.png" class="SB19"> </a>
+
+		<ul class="navbar">
+			<li><a href="home.html">Home</a></li>
+			<li><a href="about.html">About</a></li>
+			<li><a href="artist.html">Artist</a></li>
+			<li><a href="album.html">Album</a></li>
+		</ul>
+			<div class="bx bx-menu" id="menu-icon"></div>
+	</header>
+
+	<!--home section design-->
+	<section class="home">
+		<video autoplay muted loop id="myVideo">
+			<!----- <source src="images/cover.mp4" type="video/mp4">/-->
+		  </video>
+		<div class="home-text">
+			
+			<h1>SB19</h1>
+			<p>Get In The Zone, Break! Hi, we are SB19! This SB19 Fandom is to provide you with the latest info on your 
+				favorite band including new music releases, teaser photos, videos, trivia and more! </p>
+			<a href="artist.html" class="btn">Read More</a>
+		</div>
+	</section>
+
+	<!--feaure section design-->
+	<section class="feature">
+		<h1>SB19 ARTISTS</h1>
+		<div class="feature-content">
+			<div class="row">
+				<div class="row-img">
+					<img src="images/pablo1.jpg">
+				</div>
+				<h2>PABLO</h2>
+			</div>
+
+			<div class="row">
+				<div class="row-img">
+					<img src="images/josh1.jpg">
+				</div>
+				<h2>JOSH</h2>
+			</div>
+
+			<div class="row">
+				<div class="row-img">
+					<img src="images/justine1.jpg">
+				</div>
+				<h2>JUSTINE</h2>
+			</div>
+
+			<div class="row">
+				<div class="row-img">
+					<img src="images/ken1.jpg">
+				</div>
+				<h2>KEN</h2>
+			</div>
+
+			<div class="row">
+				<div class="row-img">
+					<img src="images/stell1.jpg">
+				</div>
+				<h2>STELL</h2>
+			</div>
+		</div>
+	</section>
+
+	<!--poster section design-->
+	<section class="poster">
+		<div class="poster-img">
+			<img src="images/poster.jpg">
+		</div>
+
+		<div class="poster-text">
+			<h1>SB19 PAGTATAG!</h1>
+			<h2>Out now on all streaming platforms!</h2>
+			<p>SB19 is going to have a world tour for their upcoming EP (extended play) "PAGTATAG!"
+			The P-pop group made the announcement on Twitter, Sunday, sharing the schedules and locations for the shows.
+			SB19 will kick off the tour in Manila on June 24-25, and then they will head to North America in July and August.
+			They will stop in various cities in the United States and Canada, among them Chicago, Dallas, San Francisco, Los Angeles, 
+			New York, Washington DC, Toronto, Winnipeg, Vancouver, and Edmonton.
+			</p>
+			<a href="artist.html" class="btn">Read More</a>
+		</div>
+	</section>
+
+	<!----footer section design---->
+	<section class="footer">
+		<div class="footer-box">
+			<h3>Follow Us!</h3>
+			<a href="https://www.facebook.com/SB19Official" target="_blank"><i class="ri-facebook-fill"></i></a>
+			<a href="https://www.instagram.com/officialsb19/" target="_blank"><i class="ri-instagram-fill"></i></a>
+			<a href="https://twitter.com/SB19Official" target="_blank"><i class="ri-twitter-fill"></i></a>
+			<a href="https://www.youtube.com/@OfficialSB19" target="_blank"><i class="ri-youtube-fill"></i></a>
+			<a href="https://www.tiktok.com/@officialsb19" target="_blank"><i class="ri-tiktok-fill"></i></a>
+			<a href="https://open.spotify.com/artist/3g7vYcdDXnqnDKYFwqXBJP?si=jC8rl5fXR2mveIlYC479iQ" target="_blank"><i class="ri-spotify-fill"></i></a>
+		</div>
+	</section>
+
+	<!--custom js file link-->
+	<script type="text/javascript">
+		window.addEventListener("scroll", function(){
+			var header = document.querySelector("header");
+			header.classList.toggle("sticky", window.scrollY > 0);
+		})
+
+		let menu = document.querySelector('#menu-icon');
+		let navbar = document.querySelector('.navbar');
+
+		menu.onclick = () => {
+			menu.classList.toggle('bx-x');
+			navbar.classList.toggle ('open');
+		}
+	</script>
+
+</body>
+</html>

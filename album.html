@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SB19 Fandom</title>
+
+	<script src="https://kit.fontawesome.com/2c7fc28a2f.js"></script>
+
+	<!---custom css link-->
+	<link rel="stylesheet" href="style.css">
+
+	<!--boxicons link-->
+	<link rel="stylesheet"
+	href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+
+	<!--google fonts link-->
+	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900" rel="stylesheet" type="text/css">
+		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+	<!--header design-->
+	<header>
+		
+		<a href="home.html" id="SB19">
+			<img src="images/logo.png" class="SB19"> </a>
+
+		<ul class="navbar">
+			<li><a href="home.html">Home</a></li>
+			<li><a href="about.html">About</a></li>
+			<li><a href="artist.html">Artist</a></li>
+			<li><a href="album.html">Album</a></li>
+		</ul>
+		<div class="bx bx-menu" id="menu-icon"></div>
+		
+	</header>
+
+
+	<!---album design-->
+	<section id ="album">
+		<h1>ALBUM</h1>
+		<h2>POPULAR RELEASES</h2>
+		<div id="container">
+			<div id="toggleContainer">
+			   <label>Carousel</label>
+			   <div id="toggle">
+				 <div id="outer3">
+					<div id="slider3"></div>
+				 </div>
+				 <label>Tiles</label>
+			  </div>
+			</div>
+			<div id="galleryView">
+			  <div id="galleryContainer">
+				 <div id="leftView"></div>
+				 <button id="navLeft" class="navBtns"><i class="fas fa-arrow-left fa-3x"></i></button>
+				 <a id="linkTag">
+					<div id="mainView"></div>
+				 </a>
+				 <div id="rightView"></div>
+				 <button id="navRight" class="navBtns"><i class="fas fa-arrow-right fa-3x"></i></button>
+			  </div>
+			</div>
+			<div id="tilesView">
+			  <div id="tilesContainer"></div>
+			</div>
+		  </div>   
+		  <script>
+			document.getElementById("outer3").addEventListener("click", toggleState3);
+    
+	function toggleState3() {
+	  let galleryView = document.getElementById("galleryView")
+	  let tilesView = document.getElementById("tilesView")
+	  let outer = document.getElementById("outer3");
+	  let slider = document.getElementById("slider3");
+	  let tilesContainer = document.getElementById("tilesContainer");
+	  if (slider.classList.contains("active")) {
+		slider.classList.remove("active");
+		outer.classList.remove("outerActive");
+		galleryView.style.display = "flex";
+		tilesView.style.display = "none";
+		
+		while (tilesContainer.hasChildNodes()) {
+		  tilesContainer.removeChild(tilesContainer.firstChild)
+		  }  
+	  } else {
+		slider.classList.add("active");
+		outer.classList.add("outerActive");
+		galleryView.style.display = "none";
+		tilesView.style.display = "flex";
+		 
+		for (let i = 0; i < imgObject.length - 0; i++) {
+		  let tileItem = document.createElement("div");
+		  tileItem.classList.add("tileItem");
+		  tileItem.style.background =  "url(" + imgObject[i] + ")";
+		  tileItem.style.backgroundSize = "cover";
+		  tileItem.style.backgroundRepeat = "no-repeat";   
+		  tilesContainer.appendChild(tileItem);      
+		}
+	  };
+	}
+	
+	let imgObject = [
+	  "images/gento1.jpg",
+	  "images/mapa.jpg",
+	  "images/what.png",
+	  "images/wyat.jpg",
+	  "images/GoUp.jpg",
+	  "images/bazinga.jpg",
+	  "images/HSH.png",
+	  "images/alab.jpg",
+	  "images/iwantu.jpg",
+	  "images/crimzone.jpg",
+	];
+	
+	let mainImg = 0;
+	let prevImg = imgObject.length - 1;
+	let nextImg = 1;
+	
+	function loadGallery() {
+	
+	  let mainView = document.getElementById("mainView");
+	  mainView.style.background = "url(" + imgObject[mainImg] + ")";
+	
+	  let leftView = document.getElementById("leftView");
+	  leftView.style.background = "url(" + imgObject[prevImg] + ")";
+	  
+	  let rightView = document.getElementById("rightView");
+	  rightView.style.background = "url(" + imgObject[nextImg] + ")";
+	  
+	  let linkTag = document.getElementById("linkTag")
+	  linkTag.href = imgObject[mainImg];
+	
+	};
+	
+	function scrollRight() {
+	  
+	  prevImg = mainImg;
+	  mainImg = nextImg;
+	  if (nextImg >= (imgObject.length -1)) {
+		nextImg = 0;
+	  } else {
+		nextImg++;
+	  }; 
+	  loadGallery();
+	};
+	
+	function scrollLeft() {
+	  nextImg = mainImg
+	  mainImg = prevImg;
+	   
+	  if (prevImg === 0) {
+		prevImg = imgObject.length - 1;
+	  } else {
+		prevImg--;
+	  };
+	  loadGallery();
+	};
+	
+	document.getElementById("navRight").addEventListener("click", scrollRight);
+	document.getElementById("navLeft").addEventListener("click", scrollLeft);
+	document.getElementById("rightView").addEventListener("click", scrollRight);
+	document.getElementById("leftView").addEventListener("click", scrollLeft);
+	document.addEventListener('keyup',function(e){
+		if (e.keyCode === 37) {
+		scrollLeft();
+	  } else if(e.keyCode === 39) {
+		scrollRight();
+	  }
+	});
+	
+	loadGallery();
+		  </script>
+	
+		<!--custom js file link-->
+		<script type="text/javascript">
+			window.addEventListener("scroll", function(){
+				var header = document.querySelector("header");
+				header.classList.toggle("sticky", window.scrollY > 0);
+			})
+	
+			let menu = document.querySelector('#menu-icon');
+			let navbar = document.querySelector('.navbar');
+	
+			menu.onclick = () => {
+				menu.classList.toggle('bx-x');
+				navbar.classList.toggle ('open');
+			}
+		</script>
+	</section>
+</body>
+</html>
